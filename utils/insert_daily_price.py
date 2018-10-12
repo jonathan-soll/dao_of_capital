@@ -6,7 +6,7 @@ API Info: https://simfin.com/api/v1/documentation/#operation/getPrices
 from urllib.request import Request, urlopen
 import urllib
 import requests
-import sql2
+import SQLConnect
 
 
 def chunks(the_list, size):
@@ -131,7 +131,7 @@ if __name__ == '__main__':
     print('Date Range: %s to %s' % (start_date, end_date))
 
     API_KEY = 'N8XsZtAZtjMH8aUVK0d4A6HXm152V0TF'
-    sqlconnect = sql2.SQLConnect()
+    sqlconnect = SQLConnect.SQLConnect()
     table = 'SimFin.daily_price'
     keys = ['simId', 'date', 'closeAdj', 'splitCoef']
 

@@ -8,11 +8,11 @@ WARNING : NOT UPDATED TO HANDLE ALREADY EXISTING DATA
 from urllib.request import Request, urlopen
 import urllib
 import requests
-import sql2
+import SQLConnect
 
 API_KEY = 'N8XsZtAZtjMH8aUVK0d4A6HXm152V0TF'
 
-sqlconnect = sql2.SQLConnect()
+sqlconnect = SQLConnect.SQLConnect()
 
 querystr = """
 SELECT simId

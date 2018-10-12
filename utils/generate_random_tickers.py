@@ -1,9 +1,9 @@
-from simfin import SimFin_DataRequestor
-import sql2
+import SimFin_DataRequestor
+import SQLConnect
 import sys
 import numpy as np
 
-def generate_random_tickers(schema, table, num_tickers = 5, sqlconnector = sql2.SQLConnect()):
+def generate_random_tickers(schema, table, num_tickers = 5, sqlconnector = SQLConnect.SQLConnect()):
     """
     Generate and return a random list of SimFin tickers that are not in the given SQL table
     """
@@ -24,7 +24,7 @@ if __name__ == '__main__':
     # handle command-line arguments
     API_KEY = sys.argv[1] if len(sys.argv) > 1 else 'N8XsZtAZtjMH8aUVK0d4A6HXm152V0TF'
 
-    my_data_requestor = SimFin_DataRequestor(API_KEY=API_KEY)
+    my_data_requestor = SimFin_DataRequestor.SimFin_DataRequestor(API_KEY=API_KEY)
     schema = 'SimFin'
     table = 'balancesheet'
     tickers = generate_random_tickers(schema, table)
