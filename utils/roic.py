@@ -3,22 +3,16 @@ from utils import SQLConnect
 
 
 
-def return_roic_df(simIds):
-    sqlconnect = SQLConnect.SQLConnect()
-
-    balance_sheet_querystr = """
-    SELECT *
-    FROM SimFin.vw_InvestedCapital t (nolock)
+def return_roic_df(simIds, df_balancesheet, df_incomestatement):
     """
+    Return a pandas dataframe that has the Return On Invested Capital (ROIC)
+    for a ticker or set of tickers (simIds).
 
-    income_statement_querystr = """
-    SELECT *
-    FROM SimFin.vw_EBIT t (nolock)
+    PARAMETERS:
+    df_balancesheet - invested capital data from db
+    df_incomestatement - ebit data from db
     """
-
-    df_balancesheet = pd.read_sql(balance_sheet_querystr, sqlconnect.conn)
-    df_incomestatement = pd.read_sql(income_statement_querystr, sqlconnect.conn)
-
+    
     df_result = pd.DataFrame()
 
     for simId in simIds:
